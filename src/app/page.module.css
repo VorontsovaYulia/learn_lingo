@@ -11,15 +11,18 @@
   gap: 24px;
 }
 
-.left-box {
+.text-box {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
+  padding: 98px 64px;
+}
+
+.left-box {
   background-color: var(--background-page-second);
   border-radius: 30px;
   width: 720px;
-  padding: 98px 64px;
 }
 
 .left-box h1 {
