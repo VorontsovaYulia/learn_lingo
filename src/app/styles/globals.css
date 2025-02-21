@@ -1,4 +1,10 @@
-:root {
+@import url('./normalize.css');
+@import url('./variables.css');
+
+
+
+
+/* :root {
   --background: #ffffff;
   --foreground: #171717;
 }
@@ -39,4 +45,4 @@ a {
   html {
     color-scheme: dark;
   }
-}
+} */
