@@ -1,9 +1,47 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+import Image from 'next/image';
+import styles from './page.module.css';
 
 export default function Home() {
   return (
-    <div className={styles.page}>
+    <main className={styles.wrapper}>
+      <div className={styles.box}>
+        <div className={styles['left-box']}>
+          <h1>
+            Unlock your potential with the best <span>language</span> tutors
+          </h1>
+          <p>
+            Embark on an Exciting Language Journey with Expert Language Tutors:
+            Elevate your language proficiency to new heights by connecting with
+            highly qualified and experienced tutors.
+          </p>
+          <button>Get started</button>
+        </div>
+        <div className={styles['right-box']}>
+          <Image
+            className={styles.girl}
+            src="/girl.png"
+            alt="girl"
+            width={339}
+            height={304}
+            priority
+          />
+          <Image
+            className={styles.mac}
+            src="/Mac.png"
+            alt="mac"
+            width={360}
+            height={170}
+            priority
+          />
+        </div>
+      </div>
+      <div></div>
+    </main>
+  );
+}
+
+{
+  /* <div className={styles.page}>
       <main className={styles.main}>
         <Image
           className={styles.logo}
@@ -84,6 +122,5 @@ export default function Home() {
           Go to nextjs.org →
         </a>
       </footer>
-    </div>
-  );
+    </div> */
 }
