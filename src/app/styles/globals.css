@@ -3,7 +3,7 @@
 
 body {
   color: var(--text-color, black);
-  font-family: 'Roboto', sans-serif;
+  font-family: var(--font-roboto);
 }
 
 button {
