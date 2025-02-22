@@ -4,7 +4,7 @@ import './styles/globals.css';
 const roboto = Roboto({
   variable: '--font-roboto',
   subsets: ['latin'],
-  weight: ['400', '500', '700'], // Укажи нужные толщины
+  weight: ['400', '500', '700'],
 });
 
 export const metadata = {
