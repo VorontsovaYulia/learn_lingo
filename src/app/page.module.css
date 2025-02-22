@@ -9,6 +9,7 @@
   justify-content: center;
   align-items: center;
   gap: 24px;
+  margin-bottom: 24px;
 }
 
 .text-box {
@@ -27,14 +28,14 @@
 
 .left-box h1 {
   font-size: 48px;
-  font-weight: 550;
+  font-weight: 500;
   line-height: 56px;
   margin-bottom: 32px;
 }
 
 .left-box h1 span {
   background: var(--color-primary);
-  font-weight: 500;
+  font-weight: 400;
   font-style: italic;
 }
 
@@ -79,6 +80,36 @@
     left: 50%;
     transform: translateX(-50%);
 }
+
+.bottom-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border-style: dashed;
+  box-sizing: border-box;
+  width: 1312px;
+  height: 116px;
+  border: 3px dashed var(--color-secondary);
+  border-radius: 30px;
+  margin: 0 auto;
+}
+
+.bottom-box div {
+  display: flex;
+  gap: 16px;
+}
+
+.text {
+  font-size: 14px;
+  color: rgba(18, 20, 23, 0.7);
+}
+
+.number {
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 32px;
+}
+
 
 
 /* .page {

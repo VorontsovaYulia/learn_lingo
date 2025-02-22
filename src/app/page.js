@@ -37,7 +37,37 @@ export default function Home() {
           />
         </div>
       </div>
-      <div></div>
+      <div className={styles['bottom-box']}>
+        <div>
+          <p className={styles.number}>32,000 +</p>
+          <p className={styles.text}>
+            Experienced <br />
+            tutors
+          </p>
+        </div>
+        <div>
+          <p className={styles.number}>300,000 +</p>
+          <p className={styles.text}>
+            5-star tutor <br />
+            reviews
+          </p>
+        </div>
+        <div>
+          <p className={styles.number}>120 +</p>
+          <p className={styles.text}>
+            Subjects
+            <br /> taught
+          </p>
+        </div>
+        <div>
+          <p className={styles.number}>200 +</p>
+          <p className={styles.text}>
+            Tutor
+            <br />
+            nationalities
+          </p>
+        </div>
+      </div>
     </main>
   );
 }
