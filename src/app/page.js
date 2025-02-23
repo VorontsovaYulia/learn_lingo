@@ -3,7 +3,7 @@ import styles from './page.module.css';
 
 export default function Home() {
   return (
-    <main className={styles.wrapper}>
+    <div>
       <div className={styles.box}>
         <div className={styles['left-box']}>
           <div className={styles['text-box']}>
@@ -68,7 +68,7 @@ export default function Home() {
           </p>
         </div>
       </div>
-    </main>
+    </div>
   );
 }
 

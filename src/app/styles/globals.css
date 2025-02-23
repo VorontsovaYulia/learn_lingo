@@ -4,6 +4,7 @@
 body {
   color: var(--text-color, black);
   font-family: var(--font-roboto);
+  width: 1440px;
 }
 
 button {
