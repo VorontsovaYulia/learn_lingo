@@ -45,12 +45,18 @@
 .left-box button {
   width: 267px;
   height: 60px;
-  background-color: var(--color-secondary);
+  background-color: var(--color-primary);
   border-radius: 12px;
   font-size: 18px;
   font-weight: 700;
   line-height: 28px;
   cursor: pointer;
+  transition:
+    background-color 0.3s;
+
+  &:hover {
+    background-color: var(--color-secondary);
+  }
 }
 
 .right-box {
