@@ -1,0 +1,27 @@
+.li {
+    position: relative;
+}
+
+.link {
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.active {
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+.active::after {
+    position: absolute;
+    content: '';
+    bottom: -12px;
+    left: -4px;
+    width: 8px;
+    height: 8px;
+    background: var(--color-secondary);
+    border-radius: 50%;
+    margin-left: 50%;
+}

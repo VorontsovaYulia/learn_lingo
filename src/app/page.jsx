@@ -15,7 +15,7 @@ export default function Home() {
               Tutors: Elevate your language proficiency to new heights by
               connecting with highly qualified and experienced tutors.
             </p>
-            <button>Get started</button>
+            <button type='button'>Get started</button>
           </div>
         </div>
         <div className={styles['right-box']}>

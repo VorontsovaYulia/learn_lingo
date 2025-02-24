@@ -50,9 +50,8 @@
   font-size: 18px;
   font-weight: 700;
   line-height: 28px;
+  cursor: pointer;
 }
-
-
 
 .right-box {
   position: relative;
