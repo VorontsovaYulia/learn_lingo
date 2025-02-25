@@ -17,6 +17,8 @@ export const Header = () => {
                 <ul className={styles['link-box']}>
                     <NavLink href="/">Home</NavLink>
                     <NavLink href="/teachers">Teachers</NavLink>
+                    <NavLink href="/favorites">Favorites</NavLink>
+
                 </ul>
             </nav>
 
