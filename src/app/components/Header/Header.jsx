@@ -1,5 +1,3 @@
-"use client";
-
 import Image from "next/image"
 import styles from './Header.module.css'
 import { NavLink } from "./NavLink";
@@ -18,7 +16,6 @@ export const Header = () => {
                     <NavLink href="/">Home</NavLink>
                     <NavLink href="/teachers">Teachers</NavLink>
                     <NavLink href="/favorites">Favorites</NavLink>
-
                 </ul>
             </nav>
 
