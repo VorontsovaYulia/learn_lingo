@@ -2,7 +2,7 @@ import { SignupForm } from "@/app/components/SignupForm/SignupForm";
 
 export default function SignUpPage() {
   return (
-    <div style={{ display: 'flex', justifyContent: 'center', marginTop: '60px' }}>
+    <div style={{ display: 'grid', placeItems: 'center', height: '90vh' }}>
       <SignupForm />
     </div>
   );
