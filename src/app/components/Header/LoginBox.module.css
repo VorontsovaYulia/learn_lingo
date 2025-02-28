@@ -10,12 +10,14 @@
     padding: 0;
     background-color: var(--background-page-first);
     cursor: pointer;
+    text-decoration: none;
 }
 
 .login-button span {
     font-size: 16px;
     font-weight: 700;
     line-height: 20px;
+    color: var(--text-color);
     transition: color 0.3s;
 
     &:hover {
@@ -32,6 +34,7 @@
     font-size: 16px;
     font-weight: 700;
     line-height: 20px;
+    text-decoration: none;
     cursor: pointer;
 
     transition: background-color 0.3s, color 0.3s;

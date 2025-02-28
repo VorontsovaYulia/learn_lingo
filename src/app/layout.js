@@ -18,7 +18,6 @@ export default function RootLayout({ children, modal }) {
     <html lang="en">
       <body className={`${roboto.variable}`}>
         <Header />
-
         <main>
           {children}
           {modal}
