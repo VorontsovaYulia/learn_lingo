@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import styles from './Modal.module.css';
 import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
@@ -20,7 +21,9 @@ export const Modal = ({ children }) => {
         <div className={styles.overlay} onClick={() => router.back()}>
             <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
                 {children}
-                <button className={styles.close} onClick={() => router.back()}>×</button>
+                <button className={styles.close} onClick={() => router.back()}>
+                    <Image src="/x.svg" alt="close-modal" width={32} height={32} />
+                </button>
             </div>
         </div>
     );
