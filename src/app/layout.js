@@ -13,12 +13,16 @@ export const metadata = {
   description: 'Services of teachers for learning languages online',
 };
 
-export default function RootLayout({ children }) {
+export default function RootLayout({ children, modal }) {
   return (
     <html lang="en">
       <body className={`${roboto.variable}`}>
         <Header />
-        <main>{children}</main>
+
+        <main>
+          {children}
+          {modal}
+        </main>
       </body>
     </html>
   );
