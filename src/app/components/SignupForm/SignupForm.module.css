@@ -6,6 +6,7 @@
     font-size: 40px;
     font-weight: 500;
     line-height: 48px;
+    text-align: left;
     margin-bottom: 20px;
 }
 
@@ -27,11 +28,27 @@
     margin-bottom: 40px;
 }
 
+
+
 .box input {
     width: 402px;
     padding: 16px 18px;
     border: 1px solid rgba(18, 20, 23, 0.1);
     border-radius: 12px;
+}
+
+.password {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+}
+
+.img {
+    position: absolute;
+    top: 18px;
+    right: 18px;
 }
 
 .box p {
