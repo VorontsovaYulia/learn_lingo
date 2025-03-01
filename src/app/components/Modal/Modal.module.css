@@ -12,7 +12,7 @@
 }
 
 .modal {
-    padding: 64px;
+    /* padding: 64px; */
     border-radius: 30px;
     background: var(--background-page-first);
     text-align: center;

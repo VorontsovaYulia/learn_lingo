@@ -1,0 +1,22 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius:  7px 96px / 112px;
+    height: 685px;
+    gap: 60px;
+    padding: 0 54px;
+    background-color: var(--color-primary);
+}
+
+.wrapper h3 {
+    font-size: 38px;
+    font-weight: 500;
+}
+
+.wrapper p {
+    font-size: 24px;
+    font-weight: 400;
+}
+
