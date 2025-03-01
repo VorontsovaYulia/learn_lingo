@@ -1,10 +1,12 @@
 import { LoginForm } from '@/app/components/LoginForm/LoginForm';
-// import { DesignForm } from '@/app/components/DesignForm/DesignForm';
+import { DesignForm } from "../components/DesignForm/DesignForm";
+import styles from '../../app/sign-up/SignUp.module.css';
 
 
 export default function SignInPage() {
   return (
-    <div style={{ display: 'grid', placeItems: 'center', minHeight: 'calc(100vh - 86px)' }}>
+    <div className={styles.container}>
+       <DesignForm type={'sign-in'} />
       <LoginForm />
     </div>
   );

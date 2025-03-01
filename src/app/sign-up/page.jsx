@@ -5,7 +5,7 @@ import styles from './SignUp.module.css'
 export default function SignUpPage() {
   return (
     <div className={styles.container}>
-      <DesignForm />
+      <DesignForm type={'sign-up'} />
       <SignupForm />
     </div>
   );
