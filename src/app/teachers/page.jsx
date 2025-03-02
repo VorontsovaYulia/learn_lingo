@@ -52,18 +52,27 @@ export default function Teachers() {
 
                      <div className={styles.info}>
                         
-                        <p> <span>Speaks: </span> {el.languages.slice(0, -1).join(', ')}
-                           {el.languages.length > 1 ? ', ' : ''}
-                           {el.languages[el.languages.length - 1]}
+                        <p>
+                           <span className={styles.span}>Speaks: </span>
+                           <span className={styles.lang}>
+                              {el.languages.slice(0, -1).join(', ')}
+                              {el.languages.length > 1 ? ', ' : ''}
+                              {el.languages[el.languages.length - 1]}
+                           </span>
                         </p>
 
-                        <p><span>Lesson Info: </span>{el.lesson_info}</p>
-                        <p> <span>Conditions: </span>{el.conditions.join(' ')}
+                        <p><span className={styles.span}>Lesson Info: </span>{el.lesson_info}</p>
+                        <p> <span className={styles.span}>Conditions: </span>{el.conditions.join(' ')}
                         </p>
 
                      </div>
                      <button className={styles.btn} type="button">Read more</button>
+
+                     <div className={styles['level-box']}>{el.levels.map((level, i) => {
+                        return <button key={i}>{level}</button>
+                     })}</div>
                   </div>
+                
                </div>
                
             )

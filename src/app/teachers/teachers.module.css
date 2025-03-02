@@ -92,8 +92,12 @@
     margin-bottom: 8px;
 }
 
-.info span {
+.span {
     color: rgba(138, 138, 137, 1);
+}
+
+.lang {
+    text-decoration: underline;
 }
 
 .btn {
@@ -105,4 +109,25 @@
     background-color: var(--background-page-first); 
     border-bottom: 1px solid black;
     cursor: pointer; 
+}
+
+.level-box {
+    margin-top: 24px;
+    display: flex;
+    gap: 8px;
+}
+
+.level-box button {
+    border-radius: 35px;
+    background-color: var(--background-page-first);
+    border: 1px solid rgba(18, 20, 23, 0.2);
+    padding: 8px 12px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 16px;
+}
+
+.level-box button:first-child {
+    background-color: var(--color-secondary);
+    border: none;
 }
