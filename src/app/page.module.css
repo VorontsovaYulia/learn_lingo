@@ -42,15 +42,16 @@
   width: 471px;
 }
 
-.left-box button {
-  width: 267px;
-  height: 60px;
+.button {
   background-color: var(--color-primary);
+  color: var(--text-color);
   border-radius: 12px;
+  padding: 16px 88px;
   font-size: 18px;
   font-weight: 700;
   line-height: 28px;
   cursor: pointer;
+  text-decoration: none;
   transition:
     background-color 0.3s;
 

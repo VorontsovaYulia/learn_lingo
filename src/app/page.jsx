@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from "next/link";
 import styles from './page.module.css';
 
 export default function Home() {
@@ -15,7 +16,7 @@ export default function Home() {
               Tutors: Elevate your language proficiency to new heights by
               connecting with highly qualified and experienced tutors.
             </p>
-            <button type='button'>Get started</button>
+            <Link className={styles.button} href="/teachers">Get started</Link>
           </div>
         </div>
         <div className={styles['right-box']}>
