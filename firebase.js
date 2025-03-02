@@ -23,19 +23,39 @@ const database = getDatabase();
 // const data = await writeUserData();
 // console.log(data);
 
-const dbRef = ref(getDatabase());
+// const dbRef = ref(getDatabase());
+// async function getTeachers() {
+//   get(child(dbRef, `teachers`))
+//     .then(snapshot => {
+//       if (snapshot.exists()) {
+//         console.log(snapshot.val());
+//       } else {
+//         console.log('No data available');
+//       }
+//     })
+//     .catch(error => {
+//       console.error(error);
+//     });
+// }
+
+let cachedTeachers = null;
+
 async function getTeachers() {
-  get(child(dbRef, `teachers`))
-    .then(snapshot => {
-      if (snapshot.exists()) {
-        console.log(snapshot.val());
-      } else {
-        console.log('No data available');
-      }
-    })
-    .catch(error => {
-      console.error(error);
-    });
+  if (cachedTeachers) return cachedTeachers;
+
+  const dbRef = ref(getDatabase());
+  try {
+    const snapshot = await get(child(dbRef, 'teachers'));
+    if (snapshot.exists()) {
+      cachedTeachers = snapshot.val();
+      return cachedTeachers;
+    } else {
+      return [];
+    }
+  } catch (error) {
+    console.error(error);
+    return [];
+  }
 }
 
 export { database, getTeachers };
