@@ -1,6 +1,5 @@
 import { initializeApp } from 'firebase/app';
-// import { getAnalytics } from 'firebase/analytics';
-import { getDatabase, get, ref, child } from 'firebase/database';
+import { getDatabase } from 'firebase/database';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyBsvH0T4gffIHpMZ07IR_4Bm79bPoEtwuM',
@@ -14,8 +13,9 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-// const analytics = getAnalytics(app);
-const database = getDatabase();
+const database = getDatabase(app);
+
+export { database };
 
 // async function writeUserData() {
 //   set(ref(database, '/'), { teachers });
@@ -38,24 +38,22 @@ const database = getDatabase();
 //     });
 // }
 
-let cachedTeachers = null;
+// let cachedTeachers = null;
 
-async function getTeachers() {
-  if (cachedTeachers) return cachedTeachers;
+// async function getTeachers() {
+//   if (cachedTeachers) return cachedTeachers;
 
-  const dbRef = ref(getDatabase());
-  try {
-    const snapshot = await get(child(dbRef, 'teachers'));
-    if (snapshot.exists()) {
-      cachedTeachers = snapshot.val();
-      return cachedTeachers;
-    } else {
-      return [];
-    }
-  } catch (error) {
-    console.error(error);
-    return [];
-  }
-}
-
-export { database, getTeachers };
+//   const dbRef = ref(getDatabase());
+//   try {
+//     const snapshot = await get(child(dbRef, 'teachers'));
+//     if (snapshot.exists()) {
+//       cachedTeachers = snapshot.val();
+//       return cachedTeachers;
+//     } else {
+//       return [];
+//     }
+//   } catch (error) {
+//     console.error(error);
+//     return [];
+//   }
+// }

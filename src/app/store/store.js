@@ -1,11 +1,8 @@
 import { create } from 'zustand';
-import { getTeachers } from '../../../firebase';
 
-export const useTeachers = create(set => ({
+const useStore = create(set => ({
   teachers: [],
-  loading: false,
-  getAllTeachers: async () => {
-    const res = await getTeachers();
-    set({ teachers: res });
-  },
+  setTeachers: data => set({ teachers: data }),
 }));
+
+export default useStore;

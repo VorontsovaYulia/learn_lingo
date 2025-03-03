@@ -1,28 +1,32 @@
-'use client';
-
-import { shallow } from 'zustand/shallow';
 import Image from "next/image";
 import styles from './teachers.module.css'
-import { useTeachers } from "../store/store";
-import { useEffect } from 'react';
+import useStore from "../../app/store/store";
 
-export default function Teachers() {
-  
-   const fetchAllTeachers = useTeachers(state =>state.getAllTeachers, shallow)
-   const allTeachers = useTeachers(state =>state.teachers, shallow)
+async function getData() {
 
-   useEffect(() => {
-      fetchAllTeachers();
-   }, []);
+  const res = await fetch("http://localhost:3000/api");
+    
+   if (!res.ok) {
+      throw new Error(res.status);
+   };
+
+  return res.json();
+};
+
+export default async function Teachers() {
    
-   console.log(allTeachers)
+   const allteachers = await getData();
+   const setTeachers = useStore.getState().setTeachers;
+
+
+   setTeachers(allteachers);
 
    return (
       <div className={styles.layout}>
-         {allTeachers.map((el, index) => {
+         {allteachers.map((el, i) => {
             return (
                
-               <div key={index} className={styles.wrapper}>
+               <div key={i} className={styles.wrapper}>
                   <div className={styles['avatar-box']}>
                      <Image className={styles.avatar} src={el.avatar_url} alt="avatar" width={96} height={96} />
                      <Image className={styles.online} src='/online.svg' alt="online" width={12} height={12} />
