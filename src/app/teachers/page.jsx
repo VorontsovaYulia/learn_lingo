@@ -2,9 +2,11 @@ import Image from "next/image";
 import styles from './teachers.module.css'
 import useStore from "../../app/store/store";
 
+const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
+
 async function getData() {
 
-  const res = await fetch("https://learn-lingo-liard-delta.vercel.app/api");
+  const res = await fetch(`${API_URL}/api`);
     
    if (!res.ok) {
       throw new Error(res.status);
