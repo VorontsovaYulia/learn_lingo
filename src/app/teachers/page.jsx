@@ -5,9 +5,8 @@ import useStore from "../../app/store/store";
 const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
 
 async function getData() {
-
   const res = await fetch(`${API_URL}/api`);
-    
+
    if (!res.ok) {
       throw new Error(res.status);
    };
@@ -17,15 +16,15 @@ async function getData() {
 
 export default async function Teachers() {
    
-   const allteachers = await getData();
+   const allTeachers = await getData();
    const setTeachers = useStore.getState().setTeachers;
 
 
-   setTeachers(allteachers);
+   setTeachers(allTeachers);
 
    return (
       <div className={styles.layout}>
-         {allteachers.map((el, i) => {
+         {allTeachers.map((el, i) => {
             return (
                
                <div key={i} className={styles.wrapper}>
