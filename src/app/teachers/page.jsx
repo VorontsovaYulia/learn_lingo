@@ -4,11 +4,8 @@ import useStore from "../../app/store/store";
 
 async function getData() {
 
-   const res = await fetch('https://learnlingo-5b90d-default-rtdb.firebaseio.com/teachers.json', {
-      next: { revalidate: 60 },
-   }
-   );
-   
+  const res = await fetch("https://learn-lingo-liard-delta.vercel.app/api");
+    
    if (!res.ok) {
       throw new Error(res.status);
    };
