@@ -4,8 +4,11 @@ import useStore from "../../app/store/store";
 
 async function getData() {
 
-  const res = await fetch("http://localhost:3000/api");
-    
+   const res = await fetch('https://learnlingo-5b90d-default-rtdb.firebaseio.com/teachers.json', {
+      next: { revalidate: 60 },
+   }
+   );
+   
    if (!res.ok) {
       throw new Error(res.status);
    };
