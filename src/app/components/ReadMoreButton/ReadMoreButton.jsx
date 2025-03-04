@@ -15,36 +15,34 @@ export const ReadMoreButton = ({ text, reviews }) => {
 
     return (
         <div className={styles.container}>
-     {show ? (<div>
+
+            {show ? (<div>
                 <p className={styles.text}>{text}</p>
 
                 <div className={styles.box}>
-                    {reviews.map((el, i) => {
+                    {reviews.map(({ reviewer_name,reviewer_rating,comment }, i) => {
                         return (
                             <div key={i}>
                                 <div className={styles.reviews}>
                                     <Avatar
                                         sx={{ bgcolor: teal[700], width: 44, height: 44 }}
-                                        alt={el.reviewer_name}
-                                        src={el.reviewer_name}
+                                        alt={reviewer_name}
+                                        src={reviewer_name}
                                     />
                                     <div>
-                                        <p className={styles.name}>{el.reviewer_name}</p>
+                                        <p className={styles.name}>{reviewer_name}</p>
                                         <div className={styles.star}>
                                             <Image src="/star.svg" alt="star" width={16} height={16} />
-                                            <p>{el.reviewer_rating}.0</p>
+                                            <p>{reviewer_rating}.0</p>
                                         </div>
                                     </div>
                                 </div>
-                                <div><p>{el.comment}</p></div>
+                                <div><p>{comment}</p></div>
                             </div>)
                     })}
                 </div>
             </div>) : <button onClick={onShow} className={styles.btn} type="button">Read more</button>}
-            
-
-            
-            
+              
         </div>
     );
  }
