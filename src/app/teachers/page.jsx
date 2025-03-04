@@ -5,8 +5,12 @@ import { FavoritesButton } from "../components/FavoritesButton/FavoritesButton";
 import { ReadMoreButton } from "../components/ReadMoreButton/ReadMoreButton";
 
 async function getData() {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api`);
-
+   const res = await fetch('https://learnlingo-5b90d-default-rtdb.firebaseio.com/teachers.json',
+      {
+         next: { revalidate: 60 },
+      }
+   );
+   
    if (!res.ok) {
       throw new Error(res.status);
    };
@@ -20,7 +24,6 @@ export default async function Teachers() {
    const setTeachers = useStore.getState().setTeachers;
 
    setTeachers(allTeachers);
-   console.log(allTeachers)
 
    return (
       <div className={styles.layout}>
