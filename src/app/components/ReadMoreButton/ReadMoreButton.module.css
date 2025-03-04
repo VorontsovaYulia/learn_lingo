@@ -41,4 +41,20 @@
     background-color: var(--background-page-first);
     border-bottom: 1px solid black;
     cursor: pointer;
+    margin-bottom: 32px;
+}
+
+.btn-book {
+    width: 232px;
+    height: 60px;
+    border-radius: 12px;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 28px;
+    background-color: var(--color-primary);
+    transition: background-color 0.3s;
+    
+    &:hover {
+        background-color: var(--color-secondary);
+    }
 }

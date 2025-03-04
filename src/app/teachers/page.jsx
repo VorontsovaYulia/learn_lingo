@@ -3,6 +3,7 @@ import styles from './teachers.module.css'
 import useStore from "../../app/store/store";
 import { FavoritesButton } from "../components/FavoritesButton/FavoritesButton";
 import { ReadMoreButton } from "../components/ReadMoreButton/ReadMoreButton";
+import { LevelButton } from "../components/LevelButton/LevelButton";
 
 async function getData() {
    const res = await fetch('https://learnlingo-5b90d-default-rtdb.firebaseio.com/teachers.json',
@@ -77,11 +78,8 @@ export default async function Teachers() {
 
                      </div>
               
-                     <ReadMoreButton text={el.experience} reviews={el.reviews} />
+                     <ReadMoreButton text={el.experience} reviews={el.reviews} levels={el.levels} />
 
-                     <div className={styles['level-box']}>{el.levels.map((level, i) => {
-                        return <button key={i}>{level}</button>
-                     })}</div>
                   </div>
                 
                </div>

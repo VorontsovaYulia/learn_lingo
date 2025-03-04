@@ -5,8 +5,9 @@ import Image from "next/image";
 import { useState } from "react";
 import { teal } from '@mui/material/colors';
 import styles from './ReadMoreButton.module.css'
+import { LevelButton } from '../LevelButton/LevelButton';
 
-export const ReadMoreButton = ({ text, reviews }) => {
+export const ReadMoreButton = ({ text, reviews, levels }) => {
     const [show, setShow] = useState(false);
 
     const onShow = () => {
@@ -20,7 +21,7 @@ export const ReadMoreButton = ({ text, reviews }) => {
                 <p className={styles.text}>{text}</p>
 
                 <div className={styles.box}>
-                    {reviews.map(({ reviewer_name,reviewer_rating,comment }, i) => {
+                    {reviews.map(({ reviewer_name, reviewer_rating, comment }, i) => {
                         return (
                             <div key={i}>
                                 <div className={styles.reviews}>
@@ -38,10 +39,24 @@ export const ReadMoreButton = ({ text, reviews }) => {
                                     </div>
                                 </div>
                                 <div><p>{comment}</p></div>
-                            </div>)
+                                
+                            </div>
+                        )
                     })}
+
+                    <LevelButton levels={levels} />
+
+                    <button className={styles['btn-book']} type='button'>Book trial lesson</button>
                 </div>
-            </div>) : <button onClick={onShow} className={styles.btn} type="button">Read more</button>}
+            </div>)
+                
+                :
+
+                <>
+                    <button onClick={onShow} className={styles.btn} type="button">Read more</button>
+                    <LevelButton levels={levels} />
+                </>}
+           
               
         </div>
     );
