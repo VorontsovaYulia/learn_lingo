@@ -1,11 +1,11 @@
 import Image from "next/image";
 import styles from './teachers.module.css'
 import useStore from "../../app/store/store";
-
-const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
+import { FavoritesButton } from "../components/FavoritesButton/FavoritesButton";
+import { ReadMoreButton } from "../components/ReadMoreButton/ReadMoreButton";
 
 async function getData() {
-  const res = await fetch(`${API_URL}/api`);
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api`);
 
    if (!res.ok) {
       throw new Error(res.status);
@@ -19,8 +19,8 @@ export default async function Teachers() {
    const allTeachers = await getData();
    const setTeachers = useStore.getState().setTeachers;
 
-
    setTeachers(allTeachers);
+   console.log(allTeachers)
 
    return (
       <div className={styles.layout}>
@@ -49,7 +49,9 @@ export default async function Teachers() {
                            <p className={styles.line}>Rating: {el.rating}</p>
                         </div>
                         <p>Price / 1 hour: <span>{el.price_per_hour}$</span></p>
-                        <Image src="/empty-heart.svg" alt="empty-heart" width={26} height={26} className={styles.img} />
+
+                        <FavoritesButton />
+
                      </div>
                      <div className={styles.bottombox}>
                         <h3>{`${el.name} ${el.surname}`}</h3>
@@ -71,7 +73,8 @@ export default async function Teachers() {
                         </p>
 
                      </div>
-                     <button className={styles.btn} type="button">Read more</button>
+              
+                     <ReadMoreButton text={el.experience} reviews={el.reviews} />
 
                      <div className={styles['level-box']}>{el.levels.map((level, i) => {
                         return <button key={i}>{level}</button>
