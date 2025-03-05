@@ -1,9 +1,8 @@
 import Image from "next/image";
 import styles from './teachers.module.css'
-import useStore from "../../app/store/store";
+import {useStore} from "../../app/store/store";
 import { FavoritesButton } from "../components/FavoritesButton/FavoritesButton";
 import { ReadMoreButton } from "../components/ReadMoreButton/ReadMoreButton";
-import { LevelButton } from "../components/LevelButton/LevelButton";
 
 async function getData() {
    const res = await fetch('https://learnlingo-5b90d-default-rtdb.firebaseio.com/teachers.json',

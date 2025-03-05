@@ -5,11 +5,46 @@ import { useState } from 'react';
 import Image from 'next/image';
 import { schema } from "./schema";
 import { yupResolver } from '@hookform/resolvers/yup';
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { collection, setDoc,doc } from "firebase/firestore"; 
+import { auth, db } from '../../../../firebase';
 import styles from './SignupForm.module.css'
+import { useRouter } from "next/navigation";
 
 export const SignupForm = () => {
-
+    const router = useRouter();
     const [showPassword, setShowPassword] = useState(false);
+
+    async function addUserToFB(email, name, id, token) {
+        try {
+            const usersRef = collection(db, "users");
+          
+            await setDoc(doc(usersRef, id), {
+                name,
+                email,
+                id,
+                token,
+                favorites: [],
+                orders: []
+            });
+  
+        } catch (e) {
+            console.error("Error adding document: ", e);
+        };
+    };
+
+    async function signUp(email, password, name) {
+        
+        createUserWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+
+                const user = userCredential.user;
+                addUserToFB(email, name, user.uid, user.accessToken);
+            })
+            .catch((error) => {
+                alert(error.message);
+            });
+    };
 
     const onShow = () => {
         setShowPassword(!showPassword);
@@ -26,8 +61,9 @@ export const SignupForm = () => {
     });
 
     const submitForm = (data) => {
-        alert(JSON.stringify(data));
+        signUp(data.email, data.password, data.name)
         reset();
+        router.push('/sign-in');
     };
     
     return (

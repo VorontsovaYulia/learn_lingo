@@ -1,5 +1,7 @@
 import { initializeApp } from 'firebase/app';
 import { getDatabase } from 'firebase/database';
+import { getFirestore } from 'firebase/firestore';
+import { getAuth } from 'firebase/auth';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyBsvH0T4gffIHpMZ07IR_4Bm79bPoEtwuM',
@@ -14,8 +16,10 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
+const db = getFirestore(app);
+const auth = getAuth(app);
 
-export { database };
+export { database, auth, db };
 
 // async function writeUserData() {
 //   set(ref(database, '/'), { teachers });

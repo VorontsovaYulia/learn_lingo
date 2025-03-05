@@ -1,34 +1,75 @@
 'use client';
 
+import { doc, getDoc } from "firebase/firestore";
+import { signInWithEmailAndPassword } from 'firebase/auth';
 import { useForm } from "react-hook-form";
 import { useState } from 'react';
 import Image from 'next/image';
-import { schema } from "../../components/SignupForm/schema";
+import { schema } from "../../components/LoginForm/schema";
 import { yupResolver } from '@hookform/resolvers/yup';
+import { auth, db } from '../../../../firebase';
+import { useUser } from '@/app/store/store';
 import styles from './LoginForm.module.css'
+import { useRouter } from "next/navigation";
 
 export const LoginForm = () => {
+    const router = useRouter();
+    const [showPassword, setShowPassword] = useState(false);
+    const addUserInfoToStore = useUser(state => state.setUser);
 
-        const [showPassword, setShowPassword] = useState(false);
-    
+    async function readDataFromFB(id) {
+        const docRef = doc(db, "users", id);
+        const docSnap = await getDoc(docRef);
+
+        if (docSnap.exists()) {
+            return docSnap.data();
+        } else {
+            console.log("No such document!");
+        };
+               
+    };
+
+    async function signIn(auth, email, password) {
+        try {
+            const userCredential = await signInWithEmailAndPassword(auth, email, password);
+        
+            const { email: userEmail, uid, accessToken } = userCredential.user;
+        
+            const userInfoFromDB = await readDataFromFB(uid);
+
+            addUserInfoToStore({
+                email: userEmail,
+                token: accessToken,
+                id: uid,
+                favorites: userInfoFromDB.favorites,
+                orders: userInfoFromDB.orders,
+                name: userInfoFromDB.name
+            });
+        
+        } catch (error) {
+            alert('This user does not exist ' + String.fromCodePoint(0x1F937));
+        }
+    }
+
     const onShow = () => {
         setShowPassword(!showPassword);
     };
 
-        const {
-            register,
-            formState: { errors },
-            handleSubmit,
-            reset,
-        } = useForm({
-            resolver: yupResolver(schema),
-            mode: 'onBlur'
-        });
+    const {
+        register,
+        formState: { errors },
+        handleSubmit,
+        reset,
+    } = useForm({
+        resolver: yupResolver(schema),
+        mode: 'onBlur'
+    });
     
-        const submitForm = (data) => {
-            alert(JSON.stringify(data));
-            reset();
-        };
+    const submitForm = (data) => {
+        signIn(auth, data.email, data.password);
+        reset();
+        router.push('/');
+    };
     
     return (
         <div className={styles.container}>

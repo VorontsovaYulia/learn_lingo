@@ -1,9 +1,10 @@
 import Image from "next/image"
 import styles from './Header.module.css'
-import { NavLink } from "./NavLink";
 import { LoginBox } from "./LoginBox";
+import { LinkList } from "./LinkList";
 
 export const Header = () => {
+
     return (
         <header className={styles.header}>
 
@@ -12,14 +13,7 @@ export const Header = () => {
                 <p>LearnLingo</p>
             </div>
 
-            <nav>
-                <ul className={styles['link-box']}>
-                    <NavLink href="/">Home</NavLink>
-                    <NavLink href="/teachers">Teachers</NavLink>
-                    <NavLink href="/favorites">Favorites</NavLink>
-                </ul>
-            </nav>
-
+            <LinkList />
             <LoginBox />
 
         </header>
