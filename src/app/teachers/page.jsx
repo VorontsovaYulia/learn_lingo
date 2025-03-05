@@ -1,5 +1,9 @@
 import { TeachersList } from "../components/TeachersList/TeachersList";
 
+export const metadata = {
+  title: 'Teachers | LearnLingo',
+};
+
 async function getData() {
 
   const res = await fetch(
@@ -7,9 +11,10 @@ async function getData() {
     { next: { revalidate: 60 } }
   );
 
-  if (!res.ok) throw new Error(res.status);
+   if (!res.ok) throw new Error('Unable to fetch teachers');
+   
   return res.json();
-}
+};
 
 export default async function Teachers() {
 

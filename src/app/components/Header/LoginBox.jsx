@@ -19,18 +19,19 @@ export const LoginBox = () => {
 
             {isloggedIn ?
                 
-                (<><div className={styles.avatar}>
-                    <Avatar
-                        sx={{ bgcolor: teal[700], width: 44, height: 44 }}
-                        alt={isloggedIn}
-                        src={isloggedIn}
-                    />
-                    <p>{isloggedIn}</p>
-                </div>
-                    <Link onClick={()=>{removeUserInfo()}} href="/" className={styles['login-button']}>
+                (<>
+                    <Link onClick={() => { removeUserInfo() }} href="/" className={styles['login-button']}>
                         <LogoutIcon sx={{ fontSize: 20, color: cyan[900] }} />
                         <span>Log out</span>
-                    </Link></>)
+                    </Link>
+                    <div className={styles.avatar}>
+                        <Avatar
+                            sx={{ bgcolor: teal[700], width: 28, height: 28 }}
+                            alt={isloggedIn}
+                        />
+                        <p>{isloggedIn}</p>
+                    </div>
+                </>)
                 
                 :
 

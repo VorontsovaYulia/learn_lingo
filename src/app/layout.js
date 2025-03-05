@@ -1,8 +1,6 @@
 import { Roboto } from 'next/font/google';
 import './styles/globals.css';
 import { Header } from './components/Header/Header';
-import { database } from '../../firebase';
-import { getDatabase, ref, child, get } from 'firebase/database';
 
 const roboto = Roboto({
   variable: '--font-roboto',
