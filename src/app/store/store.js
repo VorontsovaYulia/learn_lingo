@@ -1,22 +1,32 @@
 import { create } from 'zustand';
-import { persist, devtools } from 'zustand/middleware';
+import { persist, devtools, createJSONStorage } from 'zustand/middleware';
 
-const useStore = create(set => ({
-  teachers: [],
-  setTeachers: data => set({ teachers: data }),
-}));
+const useStore = create(
+  devtools(
+    persist(
+      set => ({
+        teachers: [],
+        setTeachers: data => set({ teachers: data }),
+      }),
+      {
+        name: 'teachers-storage',
+        storage: createJSONStorage(() => localStorage),
+      }
+    ),
+    { name: 'TeachersStore' }
+  )
+);
 
 const useUser = create(
   devtools(
     persist(
-      (set, get) => ({
+      set => ({
         name: '',
         email: '',
         id: '',
         token: '',
         favorites: [],
         orders: [],
-
         setUser: data =>
           set({
             name: data.name || get().name,
@@ -26,7 +36,6 @@ const useUser = create(
             favorites: data.favorites || get().favorites,
             orders: data.orders || get().orders,
           }),
-
         removeUser: () =>
           set({
             name: '',
@@ -36,11 +45,13 @@ const useUser = create(
             favorites: [],
             orders: [],
           }),
-
-        setFavorites: data => set({ favorites: data }),
       }),
-      { name: 'user-storage' }
-    )
+      {
+        name: 'user-storage',
+        storage: createJSONStorage(() => localStorage),
+      }
+    ),
+    { name: 'UserStore' }
   )
 );
 
