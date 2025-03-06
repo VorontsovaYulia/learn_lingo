@@ -96,3 +96,20 @@
 .lang {
     text-decoration: underline;
 }
+
+.btn {
+    width: 183px;
+    height: 60px;
+    border-radius: 12px;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 28px;
+    margin: 0 auto;
+    cursor: pointer;
+    background-color: var(--color-primary);
+    transition: background-color 0.3s;
+        
+    &:hover {
+        background-color: var(--color-secondary);
+    }
+}

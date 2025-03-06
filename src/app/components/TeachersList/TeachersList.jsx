@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import {useStore} from "../../store/store";
 import { FavoritesButton } from "../FavoritesButton/FavoritesButton";
@@ -9,7 +9,12 @@ import styles from './TeachersList.module.css';
 
 export const TeachersList = ({teachers}) => {
 
-  const setTeachers = useStore((state) => state.setTeachers);
+    const setTeachers = useStore((state) => state.setTeachers);
+    const [showTeachers, setShowTeachers] = useState(3)
+
+    const loadMore = () => {
+        setShowTeachers(showTeachers + 3);
+    }
 
   useEffect(() => {
     setTeachers(teachers);
@@ -17,7 +22,7 @@ export const TeachersList = ({teachers}) => {
 
     return (
         <div className={styles.layout}>
-            {teachers.map((el, i) => {
+            {teachers.slice(0, showTeachers).map((el, i) => {
                 return (
                
                     <div key={i} className={styles.wrapper}>
@@ -82,6 +87,8 @@ export const TeachersList = ({teachers}) => {
                
                 )
             })}
+            {showTeachers < teachers.length &&
+                <button className={styles.btn} onClick={loadMore} type="button">Load more</button>}
          
         </div>
     );

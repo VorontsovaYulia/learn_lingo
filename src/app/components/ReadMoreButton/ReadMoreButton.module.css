@@ -51,6 +51,7 @@
     font-size: 18px;
     font-weight: 700;
     line-height: 28px;
+    cursor: pointer;
     background-color: var(--color-primary);
     transition: background-color 0.3s;
     

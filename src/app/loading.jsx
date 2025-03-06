@@ -6,7 +6,7 @@ export default function LoadingHome() {
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            height: "100vh",
+            height: "90vh",
             width: "100vw",
         }}>
             <BeatLoader
