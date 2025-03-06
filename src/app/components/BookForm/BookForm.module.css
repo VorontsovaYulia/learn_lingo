@@ -1,0 +1,104 @@
+.container {
+    width: 482px;
+    height: 70vh;
+    padding: 54px;
+    overflow-y: scroll;
+}
+
+.container h2 {
+    font-size: 40px;
+    line-height: 48px;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.avatar-box {
+    display: flex;
+    gap: 14px;
+    margin-bottom: 40px;
+}
+
+.name-box {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.name-box p {
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 16px;
+    color: rgb(138, 138, 137);
+}
+
+.avatar {
+    border-radius: 50%;
+}
+
+.container h4 {
+    font-size: 24px;
+    line-height: 32px;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.text {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 22px;
+    color: rgba(18, 20, 23, 0.8);
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.radio {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;  
+    margin-bottom: 40px;
+}
+
+.radio label{
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 22px;
+    display: flex;
+    gap: 8px;
+}
+
+.box {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+    margin-bottom: 40px;
+}
+
+.box input {
+    width: 402px;
+    padding: 16px 18px;
+    border: 1px solid rgba(18, 20, 23, 0.1);
+    border-radius: 12px;
+}
+
+.box p {
+    color: red;
+}
+
+.button {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 28px;
+    color: var(--text-color);
+    width: 438px;
+    height: 60px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    background-color: var(--color-primary);
+    transition: background-color 0.3s;
+
+    &:hover {
+        background-color: var(--color-secondary);
+    }
+}

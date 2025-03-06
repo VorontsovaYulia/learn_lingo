@@ -1,20 +1,25 @@
-'use client';
+"use client";
 
-import Image from 'next/image';
-import styles from './Modal.module.css';
-import { useRouter } from 'next/navigation';
-import { useEffect } from 'react';
+import Image from "next/image";
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
+import styles from "./Modal.module.css";
 
 export const Modal = ({ children }) => {
     const router = useRouter();
 
     useEffect(() => {
+        document.body.classList.add("modal-open");
+
         const onEscape = (e) => {
-            if (e.key === 'Escape') router.back();
+            if (e.key === "Escape") router.back();
         };
-        document.addEventListener('keydown', onEscape);
-        
-        return () => document.removeEventListener('keydown', onEscape);
+        document.addEventListener("keydown", onEscape);
+
+        return () => {
+            document.body.classList.remove("modal-open");
+            document.removeEventListener("keydown", onEscape);
+        };
     }, [router]);
 
     return (
@@ -28,4 +33,3 @@ export const Modal = ({ children }) => {
         </div>
     );
 };
-

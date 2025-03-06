@@ -6,13 +6,21 @@ import { useState } from "react";
 import { teal } from '@mui/material/colors';
 import styles from './ReadMoreButton.module.css'
 import { LevelButton } from '../LevelButton/LevelButton';
+import { Modal } from '../Modal/Modal';
+import { BookForm } from '../BookForm/BookForm';
 
-export const ReadMoreButton = ({ text, reviews, levels }) => {
+export const ReadMoreBox = ({ text, reviews, levels, avatar, name, surname }) => {
     const [show, setShow] = useState(false);
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
 
     const onShow = () => {
         setShow(true);
-    }
+    };
+
+    const toggleBookModal = () => {
+        setIsModalOpen(!isModalOpen);
+    };
 
     return (
         <div className={styles.container}>
@@ -46,7 +54,7 @@ export const ReadMoreButton = ({ text, reviews, levels }) => {
 
                     <LevelButton levels={levels} />
 
-                    <button className={styles['btn-book']} type='button'>Book trial lesson</button>
+                    <button onClick={toggleBookModal} className={styles['btn-book']} type='button'>Book trial lesson</button>
                 </div>
             </div>)
                 
@@ -56,7 +64,14 @@ export const ReadMoreButton = ({ text, reviews, levels }) => {
                     <button onClick={onShow} className={styles.btn} type="button">Read more</button>
                     <LevelButton levels={levels} />
                 </>}
-           
+            
+            {isModalOpen &&
+                <Modal>
+                    <BookForm
+                        avatar={avatar}
+                        name={name}
+                        surname={surname} />
+                </Modal>}
               
         </div>
     );

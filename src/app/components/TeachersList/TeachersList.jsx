@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import Image from "next/image";
 import {useStore} from "../../store/store";
 import { FavoritesButton } from "../FavoritesButton/FavoritesButton";
-import { ReadMoreButton } from "../ReadMoreButton/ReadMoreButton";
+import { ReadMoreBox } from "../ReadMoreButton/ReadMoreButton";
 import styles from './TeachersList.module.css';
 
 export const TeachersList = ({teachers}) => {
@@ -67,7 +67,14 @@ export const TeachersList = ({teachers}) => {
 
                             </div>
               
-                            <ReadMoreButton text={el.experience} reviews={el.reviews} levels={el.levels} />
+                            <ReadMoreBox
+                                text={el.experience}
+                                reviews={el.reviews}
+                                levels={el.levels}
+                                avatar={el.avatar_url}
+                                name={el.name}
+                                surname={el.surname}
+                            />
 
                         </div>
                 

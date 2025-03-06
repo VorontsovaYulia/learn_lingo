@@ -12,11 +12,11 @@
 }
 
 .modal {
-    /* padding: 64px; */
     border-radius: 30px;
     background: var(--background-page-first);
     text-align: center;
     position: relative;
+    overflow-y: hidden;
 }
 
 .close {
