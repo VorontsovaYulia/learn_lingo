@@ -1,6 +1,6 @@
 import BeatLoader from "react-spinners/BeatLoader";
 
-export default function LoadingHome() {
+export default function LoadingTeachers() {
     return (
         <div style={{
             display: "flex",
