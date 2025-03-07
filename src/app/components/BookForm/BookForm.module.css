@@ -51,34 +51,12 @@
     margin-bottom: 20px;
 }
 
-.radio {
-    display: flex;
-    flex-direction: column;
-    gap: 18px;  
-    margin-bottom: 40px;
-}
-
-.radio label{
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 22px;
-    display: flex;
-    gap: 8px;
-}
-
 .box {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 18px;
     margin-bottom: 40px;
-}
-
-.box input {
-    width: 402px;
-    padding: 16px 18px;
-    border: 1px solid rgba(18, 20, 23, 0.1);
-    border-radius: 12px;
 }
 
 .box p {
@@ -90,9 +68,10 @@
     font-weight: 700;
     line-height: 28px;
     color: var(--text-color);
-    width: 438px;
+    width: 100%;
     height: 60px;
     border: none;
+    padding: 16px 18px;
     border-radius: 12px;
     cursor: pointer;
     background-color: var(--color-primary);
@@ -101,4 +80,81 @@
     &:hover {
         background-color: var(--color-secondary);
     }
+}
+
+/* custom styles for radio-button  */
+
+.radio {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    margin-bottom: 40px;
+}
+
+.radio label {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 22px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.radio input[type="radio"] {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(18, 20, 23, 0.1);
+    border-radius: 50%;
+    display: inline-block;
+    position: relative;
+}
+
+.radio input[type="radio"]:checked {
+    border: 2px solid #9FBAAE;
+}
+
+.radio input[type="radio"]::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 10px;
+    height: 10px;
+    background-color: #9FBAAE;
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: all 0.2s ease-in-out;
+}
+
+.radio input[type="radio"]:checked::before {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+/* custom styles for fields  */
+
+.box input {
+    width: 444px;
+    padding: 16px 18px;
+    border: 1px solid rgba(18, 20, 23, 0.1);
+    border-radius: 12px;
+    transition: border-color 0.3s, background-color 0.3s;
+}
+
+.box input:focus {
+    border-color: #7A9C91;
+    background-color: #F0F7F5;
+}
+
+.box input:-webkit-autofill {
+    background-color: transparent !important;
+    -webkit-box-shadow: 0 0 0px 1000px white inset !important;
+}
+
+.box input:focus-visible {
+    outline: none;
+}
+
+.box input {
+    -webkit-tap-highlight-color: transparent;
 }

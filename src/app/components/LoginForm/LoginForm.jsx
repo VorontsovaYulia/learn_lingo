@@ -82,6 +82,7 @@ export const LoginForm = () => {
 
                     <input {...register('email')} placeholder="Email" />
                     <p>{errors.email?.message}</p>
+                    
                     <div className={styles.password}>
                         <input className={styles.password} type={showPassword ? 'text' : 'password'} {...register('password')} placeholder="Password" />
                         <Image

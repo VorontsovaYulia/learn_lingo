@@ -28,15 +28,6 @@
     margin-bottom: 40px;
 }
 
-
-
-.box input {
-    width: 402px;
-    padding: 16px 18px;
-    border: 1px solid rgba(18, 20, 23, 0.1);
-    border-radius: 12px;
-}
-
 .password {
     position: relative;
     display: flex;
@@ -72,4 +63,32 @@
     &:hover {
         background-color: var(--color-secondary);
     }
+}
+
+/* custom styles for fields  */
+
+.box input {
+    width: 400px;
+    padding: 16px 18px;
+    border: 1px solid rgba(18, 20, 23, 0.1);
+    border-radius: 12px;
+    transition: border-color 0.3s, background-color 0.3s;
+}
+
+.box input:focus {
+    border-color: #7A9C91;
+    background-color: #F0F7F5;
+}
+
+.box input:-webkit-autofill {
+    background-color: transparent !important;
+    -webkit-box-shadow: 0 0 0px 1000px white inset !important;
+}
+
+.box input:focus-visible {
+    outline: none;
+}
+
+.box input {
+    -webkit-tap-highlight-color: transparent;
 }
