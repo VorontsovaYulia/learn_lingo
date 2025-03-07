@@ -15,11 +15,11 @@ export const FavoritesButton = () => {
         <div onClick={toggleFavorite}>
 
             {isFavorite ?
-                <Image src="/filled-heart.svg" alt="filled-heart" width={26} height={26} className={styles.img} />
+                <Image src="/filled-heart.svg" alt="filled-heart" width={26} height={26} className={styles.filled} />
                 :
-                <Image src="/empty-heart.svg" alt="empty-heart" width={26} height={26} className={styles.img} />
+                <Image src="/empty-heart.svg" alt="empty-heart" width={26} height={26} className={styles.empty} />
             }
 
         </div>
-    );
+    )
  }

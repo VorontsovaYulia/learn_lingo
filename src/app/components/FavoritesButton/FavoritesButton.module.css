@@ -1,3 +1,9 @@
-.img {
+.empty {
     margin-left: 50px;
+    filter: invert(63%) sepia(11%) saturate(543%) hue-rotate(97deg) brightness(90%) contrast(88%);
+}
+
+.filled {
+    margin-left: 50px;
+    filter: brightness(0) saturate(100%) invert(63%) sepia(11%) saturate(543%) hue-rotate(97deg) brightness(90%) contrast(88%);
 }
