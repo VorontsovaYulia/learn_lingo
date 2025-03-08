@@ -1,5 +1,9 @@
-.layout {
+.container {
     background-color: var(--background-page-second);
+    min-height: 100vh; 
+}
+
+.layout {
     padding: 32px;
     display: flex;
     gap: 32px;
