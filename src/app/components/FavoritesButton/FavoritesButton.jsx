@@ -1,18 +1,17 @@
 'use client'
 
 import Image from "next/image";
-import { useState } from "react";
 import styles from './FavoritesButton.module.css'
+import { useUser } from "@/app/store/store";
 
-export const FavoritesButton = () => {
-    const [isFavorite, setIsFavorite] = useState(false);
+export const FavoritesButton = ({ teacherId }) => {
+    
+    const { favorites, setFavorites } = useUser();
+    const isFavorite = favorites.some((fav) => fav.id === teacherId);
 
-    const toggleFavorite = () => {
-        setIsFavorite(!isFavorite);
-    };
 
     return (
-        <div onClick={toggleFavorite}>
+        <div onClick={() => setFavorites(teacherId)}>
 
             {isFavorite ?
                 <Image src="/filled-heart.svg" alt="filled-heart" width={26} height={26} className={styles.filled} />
