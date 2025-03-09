@@ -11,10 +11,14 @@ export const TeachersList = ({ teachers }) => {
     const setTeachers = useStore((state) => state.setTeachers);
     
     const [showTeachers, setShowTeachers] = useState(3);
-    const [selected, setSelected] = useState("All");
+    const [selected, setSelected] = useState('All');
     const [isClient, setIsClient] = useState(false);
 
-    const lang = [...new Set(teachers.flatMap(el => el.languages))];
+    const lang = ["All", ...new Set(teachers.flatMap((el) => el.languages))];
+
+    const filteredTeachers = selected === "All"
+        ? teachers
+        : teachers.filter(teacher => teacher.languages.includes(selected));
 
     const loadMore = () => {
         setShowTeachers(showTeachers + 3);
@@ -32,7 +36,7 @@ export const TeachersList = ({ teachers }) => {
                 {isClient && <LanguageSelect options={lang} selected={selected} setSelected={setSelected} />}
 
                 <ul className={styles.layout}>
-                    {teachers.slice(0, showTeachers).map(teacher => {
+                    {filteredTeachers.slice(0, showTeachers).map(teacher => {
                         return (
                             <li key={teacher.id} className={styles.wrapper}>
                                 <TeacherCard teacher={teacher} />
