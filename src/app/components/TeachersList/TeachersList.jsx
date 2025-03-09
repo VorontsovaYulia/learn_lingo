@@ -43,7 +43,7 @@ export const TeachersList = ({ teachers }) => {
                             </li>
                         )
                     })}
-                    {showTeachers < teachers.length &&
+                    {showTeachers < filteredTeachers.length &&
                         <button className={styles.btn} onClick={loadMore} type="button">Load more</button>}
                 </ul>
            
