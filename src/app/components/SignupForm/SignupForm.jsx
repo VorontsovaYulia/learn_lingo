@@ -12,6 +12,7 @@ import styles from './SignupForm.module.css'
 import { useRouter } from "next/navigation";
 
 export const SignupForm = () => {
+
     const router = useRouter();
     const [showPassword, setShowPassword] = useState(false);
 
