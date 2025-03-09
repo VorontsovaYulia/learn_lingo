@@ -1,0 +1,14 @@
+.select {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 221px;
+    height: 48px;
+    margin-bottom: 52px;
+}
+
+.select label {
+    font-size: 14px;
+    line-height: 18px;
+    color:rgb(138, 138, 137);
+}
