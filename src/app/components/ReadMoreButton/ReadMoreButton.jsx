@@ -11,15 +11,10 @@ import { BookForm } from '../BookForm/BookForm';
 
 export const ReadMoreBox = ({ text, reviews, levels, avatar, name, surname }) => {
     const [show, setShow] = useState(false);
-    const [isModalOpen, setIsModalOpen] = useState(false);
-
+    const [isBookModalOpen, setIsBookModalOpen] = useState(false);
 
     const onShow = () => {
         setShow(true);
-    };
-
-    const toggleBookModal = () => {
-        setIsModalOpen(!isModalOpen);
     };
 
     return (
@@ -54,7 +49,7 @@ export const ReadMoreBox = ({ text, reviews, levels, avatar, name, surname }) =>
 
                     <LevelButton levels={levels} />
 
-                    <button onClick={toggleBookModal} className={styles['btn-book']} type='button'>Book trial lesson</button>
+                    <button className={styles['btn-book']} onClick={() => setIsBookModalOpen(true)}>Book trial lesson</button>
                 </div>
             </div>)
                 
@@ -65,12 +60,9 @@ export const ReadMoreBox = ({ text, reviews, levels, avatar, name, surname }) =>
                     <LevelButton levels={levels} />
                 </>}
             
-            {isModalOpen &&
-                <Modal>
-                    <BookForm
-                        avatar={avatar}
-                        name={name}
-                        surname={surname} />
+            {isBookModalOpen &&
+                <Modal isOpen={isBookModalOpen} closeModal={() => setIsBookModalOpen(false)} stayOnPage={true}>
+                    <BookForm avatar={avatar} name={name} surname={surname} />
                 </Modal>}
               
         </div>

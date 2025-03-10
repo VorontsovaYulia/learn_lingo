@@ -12,7 +12,7 @@ export const FavoritesButton = ({ teacherId }) => {
     const id = useUser((state) => state.id);
     const favorites = useUser((state) => state.favorites);
     const setFavorites = useUser((state) => state.setFavorites);
-        const router = useRouter();
+    const router = useRouter();
     
     const isFavorite = favorites.some((fav) => fav.id === teacherId);
 
