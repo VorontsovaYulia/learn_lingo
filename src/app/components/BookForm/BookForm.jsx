@@ -1,49 +1,12 @@
 'use client';
 
-// import { doc, getDoc } from "firebase/firestore";
-// import { signInWithEmailAndPassword } from 'firebase/auth';
 import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 import Image from 'next/image';
 import { schema } from "./schema";
-// import { auth, db } from '../../../../firebase';
 import styles from './BookForm.module.css'
 
 export const BookForm = ({avatar, name, surname}) => {
-
-    // async function readDataFromFB(id) {
-    //     const docRef = doc(db, "users", id);
-    //     const docSnap = await getDoc(docRef);
-
-    //     if (docSnap.exists()) {
-    //         return docSnap.data();
-    //     } else {
-    //         console.log("No such document!");
-    //     };
-               
-    // };
-
-    // async function signIn(auth, email, password) {
-    //     try {
-    //         const userCredential = await signInWithEmailAndPassword(auth, email, password);
-        
-    //         const { email: userEmail, uid, accessToken } = userCredential.user;
-        
-    //         const userInfoFromDB = await readDataFromFB(uid);
-
-    //         addUserInfoToStore({
-    //             email: userEmail,
-    //             token: accessToken,
-    //             id: uid,
-    //             favorites: userInfoFromDB.favorites,
-    //             orders: userInfoFromDB.orders,
-    //             name: userInfoFromDB.name
-    //         });
-        
-    //     } catch (error) {
-    //         alert('This user does not exist ' + String.fromCodePoint(0x1F937));
-    //     }
-    // }
 
   const {
     register,
@@ -60,7 +23,6 @@ export const BookForm = ({avatar, name, surname}) => {
     
     const submitForm = (data) => {
           console.log(data);
-        // signIn(auth, data.email, data.password);
         reset();
         // router.push('/');
     };
