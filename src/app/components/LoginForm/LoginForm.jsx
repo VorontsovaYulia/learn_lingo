@@ -47,7 +47,7 @@ export const LoginForm = () => {
             });
         
         } catch (error) {
-            alert('This user does not exist ' + String.fromCodePoint(0x1F937));
+            alert('Email or password entered incorrectly ' + String.fromCodePoint(0x1F937));
         }
     }
 
