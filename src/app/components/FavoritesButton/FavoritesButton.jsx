@@ -2,6 +2,7 @@
 
 import { doc, updateDoc, getDoc, arrayUnion, arrayRemove } from "firebase/firestore";
 import { db } from "../../../../firebase";
+import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { useStore, useUser } from "@/app/store/store";
 import styles from './FavoritesButton.module.css';
@@ -11,10 +12,14 @@ export const FavoritesButton = ({ teacherId }) => {
     const id = useUser((state) => state.id);
     const favorites = useUser((state) => state.favorites);
     const setFavorites = useUser((state) => state.setFavorites);
+        const router = useRouter();
     
     const isFavorite = favorites.some((fav) => fav.id === teacherId);
 
     const toggleFavorite = async () => {
+
+        if (!id) return router.push("/sign-in");
+   
         const userRef = doc(db, "users", id);
         const docSnap = await getDoc(userRef);
 
