@@ -6,7 +6,9 @@ import { useRouter } from 'next/navigation';
 import { useUser } from './app/store/store';
 
 export const PrivateRoute = ({ children }) => {
-  const { name, loading } = useUser();
+  const name = useUser(state => state.name);
+  const loading = useUser(state => state.loading);
+
   const router = useRouter();
 
   useEffect(() => {

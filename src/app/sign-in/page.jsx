@@ -8,7 +8,7 @@ import { DesignForm } from "../components/DesignForm/DesignForm";
 import styles from '../../app/sign-up/SignUp.module.css';
 
 export default function SignInPage() {
-  const { name } = useUser;
+  const name = useUser((state) => state.name);
   const router = useRouter();
 
   useEffect(() => {

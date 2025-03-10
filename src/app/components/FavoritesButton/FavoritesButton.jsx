@@ -7,8 +7,11 @@ import { useStore, useUser } from "@/app/store/store";
 import styles from './FavoritesButton.module.css';
 
 export const FavoritesButton = ({ teacherId }) => {
-    const { teachers } = useStore();
-    const { id, favorites, setFavorites } = useUser();
+    const teachers = useStore((state) => state.teachers);
+    const id = useUser((state) => state.id);
+    const favorites = useUser((state) => state.favorites);
+    const setFavorites = useUser((state) => state.setFavorites);
+    
     const isFavorite = favorites.some((fav) => fav.id === teacherId);
 
     const toggleFavorite = async () => {
