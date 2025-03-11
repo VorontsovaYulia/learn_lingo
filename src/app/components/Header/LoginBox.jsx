@@ -11,7 +11,7 @@ import styles from './LoginBox.module.css';
 
 export const LoginBox = () => {
 
-    const isloggedIn = useUser(state => state.name)
+    const isloggedIn = useUser(state => state.name);
     const removeUserInfo = useUser(state => state.removeUser);
     
     

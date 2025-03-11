@@ -6,7 +6,7 @@ import styles from './Header.module.css'
 
 export const LinkList = () => {
 
- const isloggedIn = useUser(state=>state.name)
+    const isloggedIn = useUser(state => state.name);
 
     return (
         <nav>

@@ -1,9 +1,9 @@
 import Image from "next/image";
 import { FavoritesButton } from '../FavoritesButton/FavoritesButton'
-import { ReadMoreBox } from '../ReadMoreButton/ReadMoreButton'
+import { ReadMoreBox } from "../ReadMoreBox/ReadMoreBox";
 import styles from './TeacherCard.module.css'
 
-export const TeacherCard = ({ teacher}) => {
+export const TeacherCard = ({ teacher }) => {
 
     return (
         <>
@@ -62,7 +62,7 @@ export const TeacherCard = ({ teacher}) => {
                     surname={teacher.surname}
                 />
 
-            </div>            
+            </div>
         </>
     );
- }
+};

@@ -6,25 +6,25 @@ import Image from 'next/image';
 import { schema } from "./schema";
 import styles from './BookForm.module.css'
 
-export const BookForm = ({avatar, name, surname}) => {
+export const BookForm = ({ avatar, name, surname, toggleBookModal }) => {
 
-  const {
-    register,
-    formState: { errors },
-    handleSubmit,
-    reset,
-  } = useForm({
-    resolver: yupResolver(schema),
-    mode: "onBlur",
-    defaultValues: {
-      reason: "Career and business",
-    },
-  });
+    const {
+        register,
+        formState: { errors },
+        handleSubmit,
+        reset,
+    } = useForm({
+        resolver: yupResolver(schema),
+        mode: "onBlur",
+        defaultValues: {
+            reason: "Career and business",
+        },
+    });
     
-    const submitForm = (data) => {
-          console.log(data);
+    const submitForm = () => {
         reset();
-        // router.push('/');
+        toggleBookModal();
+        document.body.classList.remove("modal-open");
     };
     
     return (

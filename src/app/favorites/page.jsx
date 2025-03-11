@@ -8,7 +8,7 @@ import styles from './favorites.module.css'
 
 export default function Favorites() {
    
-   const userFavorites = useUser(state => state.favorites)
+   const userFavorites = useUser(state => state.favorites);
 
    return (
       <PrivateRoute>
@@ -29,4 +29,4 @@ export default function Favorites() {
             </div>
       </PrivateRoute>
    );
-}
+};

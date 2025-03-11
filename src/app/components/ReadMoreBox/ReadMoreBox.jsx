@@ -4,14 +4,18 @@ import Avatar from '@mui/material/Avatar';
 import Image from "next/image";
 import { useState } from "react";
 import { teal } from '@mui/material/colors';
-import styles from './ReadMoreButton.module.css'
 import { LevelButton } from '../LevelButton/LevelButton';
 import { Modal } from '../Modal/Modal';
 import { BookForm } from '../BookForm/BookForm';
+import styles from './ReadMoreBox.module.css'
 
 export const ReadMoreBox = ({ text, reviews, levels, avatar, name, surname }) => {
     const [show, setShow] = useState(false);
     const [isBookModalOpen, setIsBookModalOpen] = useState(false);
+
+    const toggleBookModal = () => {
+        setIsBookModalOpen(!isBookModalOpen)
+    };
 
     const onShow = () => {
         setShow(true);
@@ -49,7 +53,7 @@ export const ReadMoreBox = ({ text, reviews, levels, avatar, name, surname }) =>
 
                     <LevelButton levels={levels} />
 
-                    <button className={styles['btn-book']} onClick={() => setIsBookModalOpen(true)}>Book trial lesson</button>
+                    <button className={styles['btn-book']} onClick={toggleBookModal}>Book trial lesson</button>
                 </div>
             </div>)
                 
@@ -61,8 +65,8 @@ export const ReadMoreBox = ({ text, reviews, levels, avatar, name, surname }) =>
                 </>}
             
             {isBookModalOpen &&
-                <Modal isOpen={isBookModalOpen} closeModal={() => setIsBookModalOpen(false)} stayOnPage={true}>
-                    <BookForm avatar={avatar} name={name} surname={surname} />
+                <Modal isOpen={isBookModalOpen} toggleBookModal={toggleBookModal} stayOnPage={true}>
+                    <BookForm avatar={avatar} name={name} surname={surname} toggleBookModal={toggleBookModal}/>
                 </Modal>}
               
         </div>

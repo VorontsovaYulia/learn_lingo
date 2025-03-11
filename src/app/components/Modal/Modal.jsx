@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import styles from "./Modal.module.css";
 
-export const Modal = ({ children, isOpen = true, closeModal, stayOnPage = false }) => {
+export const Modal = ({ children, isOpen = true, toggleBookModal, stayOnPage = false }) => {
     const router = useRouter();
 
     useEffect(() => {
@@ -16,7 +16,7 @@ export const Modal = ({ children, isOpen = true, closeModal, stayOnPage = false 
         }
 
         const onEscape = (e) => {
-            if (e.key === "Escape") closeModal ? closeModal() : router.back();
+            if (e.key === "Escape") toggleBookModal ? toggleBookModal() : router.back();
         };
 
         document.addEventListener("keydown", onEscape);
@@ -29,8 +29,8 @@ export const Modal = ({ children, isOpen = true, closeModal, stayOnPage = false 
     const handleClose = () => {
         document.body.classList.remove("modal-open");
 
-        if (stayOnPage && closeModal) {
-            closeModal();
+        if (stayOnPage && toggleBookModal) {
+            toggleBookModal();
         } else {
             router.back();
         }

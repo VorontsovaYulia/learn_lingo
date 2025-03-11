@@ -50,4 +50,4 @@ export const TeachersList = ({ teachers }) => {
             </div>
         </div>
     );
-}
+};
