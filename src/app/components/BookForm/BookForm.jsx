@@ -4,9 +4,10 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 import Image from 'next/image';
 import { schema } from "./schema";
-import styles from './BookForm.module.css'
+import styles from './BookForm.module.css';
 
-export const BookForm = ({ avatar, name, surname, toggleBookModal }) => {
+
+export const BookForm = ({ avatar, name, surname, onSuccess }) => {
 
     const {
         register,
@@ -23,8 +24,7 @@ export const BookForm = ({ avatar, name, surname, toggleBookModal }) => {
     
     const submitForm = () => {
         reset();
-        toggleBookModal();
-        document.body.classList.remove("modal-open");
+        onSuccess();
     };
     
     return (
@@ -88,6 +88,7 @@ export const BookForm = ({ avatar, name, surname, toggleBookModal }) => {
                 <button className={styles.button} type="submit">Book</button>
 
             </form>
+
         </div>
     );
 };

@@ -3,15 +3,19 @@
 import Avatar from '@mui/material/Avatar';
 import Image from "next/image";
 import { useState } from "react";
+import { useEffect } from "react";
+import toast, { Toaster } from 'react-hot-toast';
 import { teal } from '@mui/material/colors';
 import { LevelButton } from '../LevelButton/LevelButton';
 import { Modal } from '../Modal/Modal';
 import { BookForm } from '../BookForm/BookForm';
-import styles from './ReadMoreBox.module.css'
+import styles from './ReadMoreBox.module.css';
+
 
 export const ReadMoreBox = ({ text, reviews, levels, avatar, name, surname }) => {
     const [show, setShow] = useState(false);
     const [isBookModalOpen, setIsBookModalOpen] = useState(false);
+    const [shouldShowNotify, setShouldShowNotify] = useState(false);
 
     const toggleBookModal = () => {
         setIsBookModalOpen(!isBookModalOpen)
@@ -20,6 +24,22 @@ export const ReadMoreBox = ({ text, reviews, levels, avatar, name, surname }) =>
     const onShow = () => {
         setShow(true);
     };
+
+    const handleBookingSuccess = () => {
+        setIsBookModalOpen(false);
+        document.body.classList.remove("modal-open");
+
+        setTimeout(() => {
+            setShouldShowNotify(true);
+        }, 500);
+    };
+    
+    useEffect(() => {
+        if (shouldShowNotify) {
+            toast.success("Your booking has been successfully made!");
+            setShouldShowNotify(false);
+        }
+    }, [shouldShowNotify]);
 
     return (
         <div className={styles.container}>
@@ -66,9 +86,14 @@ export const ReadMoreBox = ({ text, reviews, levels, avatar, name, surname }) =>
             
             {isBookModalOpen &&
                 <Modal isOpen={isBookModalOpen} toggleBookModal={toggleBookModal} stayOnPage={true}>
-                    <BookForm avatar={avatar} name={name} surname={surname} toggleBookModal={toggleBookModal}/>
+                    <BookForm
+                        avatar={avatar}
+                        name={name}
+                        surname={surname}
+                        onSuccess={handleBookingSuccess}
+                    />
                 </Modal>}
-              
+            <Toaster position="top-center" reverseOrder={false} />
         </div>
     );
- }
+};
