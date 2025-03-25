@@ -69,6 +69,7 @@ export const LoginForm = () => {
         signIn(auth, data.email, data.password);
         reset();
         router.push('/');
+        document.body.classList.remove("modal-open"); 
     };
     
     return (
